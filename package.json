@@ -11,6 +11,8 @@
   },
   "packageManager": "pnpm@10.6.1",
   "scripts": {
+    "start": "pnpm build && pnpm run start:prod:backend",
+    "build": "pnpm run build:backend && pnpm run build:frontend && pnpm run prisma-db-push"
     "dev": "pnpm run --filter ./apps/extension --filter ./apps/workers --filter ./apps/backend --filter ./apps/frontend --parallel dev",
     "pm2": "pnpx concurrently \"pnpm run pm2-run\" \"pnpm run entryfile\"",
     "entryfile": "./entrypoint.sh",
